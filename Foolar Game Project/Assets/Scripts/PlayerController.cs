@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour {
     public float movementSpeed = 10f;
     public float rotateSpeed = 150f;
     public float jumpForce;
-    private bool isGrounded;
+	public Camera cam;
+	private bool isGrounded;
+	public Spells[] spell;
+	public KeyCode[] keys;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +27,7 @@ public class PlayerController : MonoBehaviour {
 
         //Free Look if alt pressed
         if (!Input.GetKey(KeyCode.LeftAlt)) {
-            transform.eulerAngles = new Vector3(0, Camera.main.transform.eulerAngles.y);
+            transform.eulerAngles = new Vector3(0, cam.transform.eulerAngles.y);
         }
 
 
@@ -41,7 +44,11 @@ public class PlayerController : MonoBehaviour {
         //running
         movementSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 15f : 10f;
         
-
+		for (int i = 0; i < keys.Length; i++) {
+			if (Input.GetKeyDown (keys [i])) {
+				spell [i].cast ();
+			}
+		}
     }
 
 }
