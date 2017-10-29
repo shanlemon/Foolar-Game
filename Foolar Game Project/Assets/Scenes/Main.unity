@@ -399,6 +399,11 @@ MonoBehaviour:
   distFromTarget: 10
   pitchMinMax: {x: -20, y: 85}
   rotationSmoothTime: 0.12
+  player: {fileID: 621845018}
+  yaw: 0
+  pitch: 0
+  tempYaw: 0
+  tempPitch: 0
 --- !u!1 &621845017
 GameObject:
   m_ObjectHideFlags: 0

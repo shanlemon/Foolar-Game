@@ -13,9 +13,9 @@ public class CameraController : MonoBehaviour {
     public float rotationSmoothTime = .12f;
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
+    public Transform player;
 
-    float yaw;
-    float pitch;
+    public float yaw, pitch, tempYaw, tempPitch;
 
 
     void Start() {
@@ -30,6 +30,16 @@ public class CameraController : MonoBehaviour {
         pitch -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
         pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
 
+        if (Input.GetKeyDown(KeyCode.LeftAlt)) {
+            tempYaw = yaw;
+            tempPitch = pitch;
+
+        }else if (Input.GetKeyUp(KeyCode.LeftAlt)) {
+            yaw = yaw - ((yaw % 360) - (tempYaw % 360));
+            pitch = tempPitch;
+        }
+
+          
         currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
         transform.eulerAngles = currentRotation;
 

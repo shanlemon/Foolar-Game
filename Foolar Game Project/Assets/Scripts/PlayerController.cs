@@ -21,7 +21,13 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 
         movement = new Vector3(movementSpeed * Input.GetAxis("Horizontal"), 0,movementSpeed * Input.GetAxis("Vertical"));
-        transform.eulerAngles = new Vector3(0,Camera.main.transform.eulerAngles.y);
+
+        //Free Look if alt pressed
+        if (!Input.GetKey(KeyCode.LeftAlt)) {
+            transform.eulerAngles = new Vector3(0, Camera.main.transform.eulerAngles.y);
+        }
+
+
         transform.Translate(movement * Time.deltaTime);
 
         //Jumping
