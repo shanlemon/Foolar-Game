@@ -42,11 +42,11 @@ public class PlayerController : MonoBehaviour {
         }
 
         //running
-        movementSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 15f : 10f;
+        movementSpeed = (Input.GetKey(KeyCode.LeftShift)) ? 50f : 10f;
         
 		for (int i = 0; i < keys.Length; i++) {
 			if (Input.GetKeyDown (keys [i])) {
-				spell [i].cast ();
+				spell [i].cast();
 			}
 		}
     }
