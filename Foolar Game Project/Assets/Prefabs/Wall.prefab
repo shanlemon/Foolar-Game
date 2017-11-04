@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33799509231739170}
   - component: {fileID: 65798170123101510}
   - component: {fileID: 23533087700230786}
-  - component: {fileID: 114217461674075840}
+  - component: {fileID: 114999645525031456}
   m_Layer: 0
   m_Name: Wall
   m_TagString: Untagged
@@ -52,12 +52,11 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 64bc294114fe4ee4c89efaebfa5df0c0, type: 2}
+  - {fileID: 2100000, guid: 88da6fd0fb3213741a1414782410130e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -68,7 +67,6 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -96,7 +94,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114217461674075840
+--- !u!114 &114999645525031456
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -104,10 +102,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581564386964642}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4db927f0bd6fa945bbcf5309dc686ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 00e10a2e9c91c4e4b80d6a5647c0133f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  acc: 0
   lifeSpan: 300
-  power: 0

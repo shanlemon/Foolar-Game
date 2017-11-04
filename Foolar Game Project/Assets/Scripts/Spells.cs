@@ -70,19 +70,17 @@ public class Spells : MonoBehaviour {
     }
 
 	void fireProjectile () {
-		Instantiate (effect, player.position, Camera.main.transform.rotation);
+		Quaternion rotation = Camera.main.transform.rotation;
+		Instantiate (effect, player.Find("Camera Target").position,rotation);
 	}
 
     void placeProjectile() {
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f,.5f,0));
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, range)) {
-            Vector3 loc = hit.point + offset;
-            Instantiate(effect, loc, player.rotation);
-        }
-
-        
-
-    }
+		Ray ray = Camera.main.ViewportPointToRay (new Vector3 (.5f, .5f, 0f));
+		RaycastHit hit;
+		if (Physics.Raycast (ray, out hit, range)) {
+			Vector3 loc = hit.point + offset;
+			Instantiate (effect, loc, player.rotation);
+		}
+	}
 
 }
