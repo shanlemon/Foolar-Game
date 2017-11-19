@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +14,9 @@ public class CameraController : MonoBehaviour {
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
     public Transform player;
+    public Transform ball;
 
+    public bool isBallFocused = false;
     public float yaw, pitch, tempYaw, tempPitch;
 
 
@@ -34,14 +36,23 @@ public class CameraController : MonoBehaviour {
             tempYaw = yaw;
             tempPitch = pitch;
 
-        }else if (Input.GetKeyUp(KeyCode.LeftAlt)) {
+        } else if (Input.GetKeyUp(KeyCode.LeftAlt)) {
             yaw = yaw - ((yaw % 360) - (tempYaw % 360));
             pitch = tempPitch;
         }
 
-          
-        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        transform.eulerAngles = currentRotation;
+        if (Input.GetKeyDown(KeyCode.X)) {
+            isBallFocused = !isBallFocused;
+        }
+
+        if (isBallFocused) {
+            Quaternion lookRotation = Quaternion.LookRotation(ball.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSmoothTime * 6);
+        } else {
+            currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+            transform.eulerAngles = currentRotation;
+
+        }
 
         transform.position = target.position - transform.forward * distFromTarget;
 
