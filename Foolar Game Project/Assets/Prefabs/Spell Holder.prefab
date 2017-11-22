@@ -148,9 +148,9 @@ MonoBehaviour:
   hologram: {fileID: 0}
   isCasting: 0
   range: 50
-  offset: {x: 0, y: 10, z: 0}
+  offset: {x: 0, y: 0, z: 0}
   type: 3
-  effect: {fileID: 1581564386964642, guid: 5ef893f110064104cb0e5206b3f22362, type: 2}
+  effect: {fileID: 100052, guid: f5ddeb708b446b4458b72a7ae681f09c, type: 3}
 --- !u!114 &114526755352677964
 MonoBehaviour:
   m_ObjectHideFlags: 1
