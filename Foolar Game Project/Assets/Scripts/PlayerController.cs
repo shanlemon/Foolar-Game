@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
 	public Spells[] spell;
 	public KeyCode[] keys;
 	public CameraController cameraController;
+    public int castingIndex;
+    public bool isCasting;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +26,6 @@ public class PlayerController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (cameraController.isBallFocused);
           if (cameraController.isBallFocused) {
               movement = Vector3.forward * Input.GetAxis("Vertical") * movementSpeed;
               transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed, 0, Space.Self);
@@ -32,8 +33,38 @@ public class PlayerController : MonoBehaviour {
               movement = new Vector3(movementSpeed * Input.GetAxis("Horizontal"), 0, movementSpeed * Input.GetAxis("Vertical"));
           }
 
-		//Free Look if alt pressed
-		if (!Input.GetKey (KeyCode.LeftAlt) && !cameraController.isBallFocused) {
+        if (isCasting) {
+
+            //if left click
+            if (Input.GetMouseButtonDown(0)) {
+                spell[castingIndex].cast();
+                spell[castingIndex].deleteHologram();
+                castingIndex = -1;
+                isCasting = false;
+
+            }
+            //if right click
+            else if (Input.GetMouseButtonDown(1)) {
+                spell[castingIndex].deleteHologram();
+                castingIndex = -1;
+                isCasting = false;
+            }
+
+            //showHologram
+            else {
+                if (!spell[castingIndex].showingHologram) {
+                    spell[castingIndex].showHologram();
+                } else {
+                    spell[castingIndex].updateHologram();
+                }
+            }
+
+        }
+    
+     
+
+        //Free Look if alt pressed
+        if (!Input.GetKey (KeyCode.LeftAlt) && !cameraController.isBallFocused) {
 			transform.eulerAngles = new Vector3 (0, cam.transform.eulerAngles.y);
 		}
 
@@ -51,11 +82,22 @@ public class PlayerController : MonoBehaviour {
 		//running
 		movementSpeed = (Input.GetKey (KeyCode.LeftShift)) ? 50f : 10f;
 
-		for (int i = 0; i < keys.Length; i++) {
-			if (Input.GetKeyDown (keys [i])) {
-				spell [i].cast ();
-			}
-		}
+        if (!cameraController.isBallFocused) {
+            for (int i = 0; i < keys.Length; i++) {
+                if (Input.GetKeyDown(keys[i])) {
+                    //spell [i].cast ();
+                    if (spell[i].canCast()) {
+                        if (isCasting == true) {
+                            spell[castingIndex].deleteHologram();
+                        }
+                        castingIndex = i;
+                        isCasting = true;
+                    }
+                }
+            }
+        }
 	}
+
+        
 
 }

@@ -7,8 +7,7 @@ public class Spells : MonoBehaviour {
 	public Transform player;
 	public int cooldown, charges;
 	public int currentCD = 0, currentCharges = 1;
-    public GameObject hologram;
-    public bool isCasting = false;
+    public GameObject hologramPrefab;
     public float range = 10f;
     public Vector3 offset;
 
@@ -35,10 +34,36 @@ public class Spells : MonoBehaviour {
 
 	}
 
-    void showHologram() {
-        Vector3 holoPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.nearClipPlane));
-        GameObject holoGram = Instantiate(hologram, holoPos, Quaternion.Euler(0,0,0));
-        holoGram.transform.position = holoPos;
+    GameObject holoGram;
+    public bool showingHologram;
+
+    public void showHologram() {
+        Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, range)) {
+            Vector3 loc = hit.point + offset;
+            holoGram = Instantiate(hologramPrefab, loc, Quaternion.Euler(-90, player.eulerAngles.y, -90));
+        }
+        showingHologram = true;
+    }
+
+    public void updateHologram() {
+        if(holoGram != null) {
+            Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, range)) {
+                Vector3 loc = hit.point + offset;
+                holoGram.transform.position = loc;
+                holoGram.transform.rotation = Quaternion.Euler(-90, player.eulerAngles.y, -90);
+            }
+        }
+        
+    }
+
+    public void deleteHologram() {
+        showingHologram = false;
+        Destroy(holoGram);
+        holoGram = null;
     }
 
     public void cast() {
@@ -58,6 +83,19 @@ public class Spells : MonoBehaviour {
 
     }
 
+    public bool canCast() {
+        if (currentCD <= 0 || charges > 1) {
+            if (charges == 1) {
+                return true;
+            } else {
+                if (currentCharges > 0) {
+                    return true;
+                }
+            }
+         }
+        return false;
+    }
+
     void castType() {
         switch (type) {
             case Types.projectile:
@@ -71,7 +109,7 @@ public class Spells : MonoBehaviour {
 
 	void fireProjectile () {
 		Quaternion rotation = Camera.main.transform.rotation;
-		Instantiate (effect, player.Find("Camera Target").position,rotation);
+		Instantiate (effect, player.Find("Shoot Target").position,rotation);
 	}
 
     void placeProjectile() {
@@ -79,7 +117,7 @@ public class Spells : MonoBehaviour {
 		RaycastHit hit;
 		if (Physics.Raycast (ray, out hit, range)) {
 			Vector3 loc = hit.point + offset;
-			Instantiate (effect, loc, player.rotation);
+			Instantiate (effect, loc, Quaternion.Euler(-90, player.eulerAngles.y, -90));
 		}
 	}
 

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
+    public GameObject crosshair;
     public bool lockCursor = true;
     public float mouseSensitivity = 5;
     public Transform target;
@@ -46,9 +47,11 @@ public class CameraController : MonoBehaviour {
         }
 
         if (isBallFocused) {
+            crosshair.SetActive(false);
             Quaternion lookRotation = Quaternion.LookRotation(ball.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSmoothTime * 6);
         } else {
+            crosshair.SetActive(true);
             currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
             transform.eulerAngles = currentRotation;
 
