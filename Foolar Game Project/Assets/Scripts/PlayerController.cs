@@ -91,7 +91,14 @@ public class PlayerController : MonoBehaviour {
                             spell[castingIndex].deleteHologram();
                         }
                         castingIndex = i;
-                        isCasting = true;
+                        if (spell[castingIndex].quickCast) {
+                            spell[castingIndex].cast();
+                            spell[castingIndex].deleteHologram();
+                            castingIndex = -1;
+                            isCasting = false;
+                        }else {
+                            isCasting = true;
+                        }
                     }
                 }
             }

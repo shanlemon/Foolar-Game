@@ -10,8 +10,10 @@ public class Spells : MonoBehaviour {
     public GameObject hologramPrefab;
     public float range = 10f;
     public Vector3 offset;
+    public bool quickCast;
 
-	public enum Types {
+
+    public enum Types {
 		projectile,
 		aoe,
 		movement,
