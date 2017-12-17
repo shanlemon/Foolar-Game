@@ -64,7 +64,7 @@ public class CameraController : MonoBehaviour {
         transform.position = target.position - transform.forward * distFromTarget;
 
         Vector3 pos = transform.position;
-        pos.y = Mathf.Clamp(transform.position.y, 0, 100);
+        pos.y = Mathf.Clamp(transform.position.y, 1, 100);
         transform.position = pos;
 
         Quaternion rot = transform.localRotation;
