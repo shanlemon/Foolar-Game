@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour {
     public float mouseSensitivity = 5;
     public Transform target;
     public float distFromTarget = 2;
-    public Vector2 pitchMinMax = new Vector2(-10, 85);
+    public Vector2 pitchMinMax = new Vector2(-52, 85);
 
     public float rotationSmoothTime = .12f;
     Vector3 rotationSmoothVelocity;
@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour {
 
 
     void Start() {
+       
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -29,8 +30,11 @@ public class CameraController : MonoBehaviour {
     }
 
     void LateUpdate() {
+
+
         yaw += Input.GetAxisRaw("Mouse X") * mouseSensitivity;
         pitch -= Input.GetAxisRaw("Mouse Y") * mouseSensitivity;
+        
         pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
 
         if (Input.GetKeyDown(KeyCode.LeftAlt)) {
@@ -59,8 +63,16 @@ public class CameraController : MonoBehaviour {
 
         transform.position = target.position - transform.forward * distFromTarget;
 
+        Vector3 pos = transform.position;
+        pos.y = Mathf.Clamp(transform.position.y, 0, 100);
+        transform.position = pos;
 
+        Quaternion rot = transform.localRotation;
+        rot.x = Mathf.Clamp(rot.x, -.43f, .64f);
+        transform.localRotation = rot;
+        Debug.Log(transform.localRotation.x);     
     }
+}   
 
 
-}
+    

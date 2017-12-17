@@ -4,23 +4,29 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    //Components
     public Rigidbody rb;
+    public Camera cam;
+    public CameraController cameraController;
+
+    //movement
     private Vector3 movement;
     public float movementSpeed = 10f;
-    public float rotateSpeed = 150f;
 	public float rotationSpeed = 2.5f;
+
+    //jumping
     public float jumpForce;
-	public Camera cam;
 	private bool isGrounded;
-	public Spells[] spell;
+
+    //spells
+    public Spells[] spell;
 	public KeyCode[] keys;
-	public CameraController cameraController;
     public int castingIndex;
     public bool isCasting;
 
     // Use this for initialization
     void Start () {
-        //rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
 
 	}
 
@@ -82,10 +88,10 @@ public class PlayerController : MonoBehaviour {
 		//running
 		movementSpeed = (Input.GetKey (KeyCode.LeftShift)) ? 50f : 10f;
 
+        //Casting
         if (!cameraController.isBallFocused) {
             for (int i = 0; i < keys.Length; i++) {
                 if (Input.GetKeyDown(keys[i])) {
-                    //spell [i].cast ();
                     if (spell[i].canCast()) {
                         if (isCasting == true) {
                             spell[castingIndex].deleteHologram();
