@@ -70,7 +70,6 @@ public class CameraController : MonoBehaviour {
         Quaternion rot = transform.localRotation;
         rot.x = Mathf.Clamp(rot.x, -.43f, .64f);
         transform.localRotation = rot;
-        Debug.Log(transform.localRotation.x);     
     }
 }   
 

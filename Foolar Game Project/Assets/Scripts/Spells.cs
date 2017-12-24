@@ -12,7 +12,6 @@ public class Spells : MonoBehaviour {
     public Vector3 offset;
     public bool quickCast;
 
-
     public enum Types {
 		projectile,
 		aoe,

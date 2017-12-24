@@ -28,6 +28,5 @@ public class ProjectileController : MonoBehaviour {
 			obj.GetComponent<BallController> ().push (power, transform);
 		}
 		delete ();
-		Debug.Log ("xd");
 	}
 }
