@@ -21,8 +21,15 @@ public class GameController : MonoBehaviour {
             settingsOpen = !settingsOpen;
             settings.SetActive(settingsOpen);
 
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            if (settingsOpen) {
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }else {
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+            }
+        
+            
         }
 	}
 
