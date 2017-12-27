@@ -24,9 +24,16 @@ public class ProjectileController : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		GameObject obj = other.gameObject;
-		if (obj.tag.Equals ("Ball")) {
-			obj.GetComponent<BallController> ().push (power, transform);
-		}
-		delete ();
+        if (obj.tag.Equals("Ball")) {
+            //obj.GetComponent<BallController>().push(power, transform);
+            if (this.gameObject.name == "Fireball(Clone)") {
+                obj.GetComponent<BallController>().push(power, transform);
+            } else if (this.gameObject.name == "IceBall(Clone)") {
+                BallController bc = obj.GetComponent<BallController>();
+                bc.StartCoroutine(bc.freezeBall(1));
+            }
+
+        }
+        delete ();
 	}
 }

@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour {
 
 
     void Start() {
+        mouseSensitivity = 5f;
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;

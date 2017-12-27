@@ -19,4 +19,12 @@ public class BallController : MonoBehaviour {
 		shootDir.Normalize (); //normalize
 		rb.AddForce (shootDir * (power / 5000000), ForceMode.Impulse);
 	}
+
+    public IEnumerator freezeBall(float time) {
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        yield return new WaitForSeconds(time);
+        rb.constraints = RigidbodyConstraints.None;
+    }
+
+
 }
