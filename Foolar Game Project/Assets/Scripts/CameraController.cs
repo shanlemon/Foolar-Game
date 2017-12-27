@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour {
 
     public GameObject crosshair;
     public bool lockCursor = true;
-    public float mouseSensitivity;
+    public static float mouseSensitivity;
     public Transform target;
     public float distFromTarget = 2;
     public Vector2 pitchMinMax = new Vector2(-52, 85);
@@ -22,12 +22,12 @@ public class CameraController : MonoBehaviour {
 
 
     void Start() {
-        mouseSensitivity = SettingsMenu.mouseSensitivity;
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
     }
+
 
     void LateUpdate() {
 

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour {
 
-    public static float mouseSensitivity = 5;
+    public float mouseSensitivity = 5;
     public AudioMixer audioMixer;
     Resolution[] resolutions;
     public TMP_Dropdown resolutionDropdown;
@@ -49,6 +49,7 @@ public class SettingsMenu : MonoBehaviour {
 
     public void setSensitivity(float sens) {
         mouseSensitivity = sens;
+        CameraController.mouseSensitivity = mouseSensitivity;
     }
 
     public void setFullscreen(bool isFullscreen) {
