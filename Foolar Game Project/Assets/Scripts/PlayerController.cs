@@ -21,8 +21,8 @@ public class PlayerController : MonoBehaviour {
     //spells
     public Spells2[] spell;
     public KeyCode[] keys;
-    public int castingIndex;
-    public bool isCasting;
+    private int castingIndex;
+    private bool isCasting;
 
     // Use this for initialization
     void Start() {

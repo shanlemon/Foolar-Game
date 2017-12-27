@@ -7,12 +7,11 @@ public class Wall : Spells2 {
 
     public float range;
     public Vector3 offset;
-    public GameObject hologram;
-
+    private GameObject hologram;
 
     public override void cast(InputSent input) {
         currentCharges--;
-        Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+		Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
@@ -28,10 +27,9 @@ public class Wall : Spells2 {
                 Vector3 loc = hit.point + offset;
                 hologram = Instantiate(hologramPrefab, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
             }
-        }else {
+        } else {
             deleteHologram();
         }
-       
     }
 
     public override void deleteHologram() {
@@ -45,7 +43,6 @@ public class Wall : Spells2 {
             Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, range)) {
-                Debug.Log("updating hologram");
                 Vector3 loc = hit.point + offset;
                 hologram.transform.position = loc;
                 hologram.transform.rotation = Quaternion.Euler(-90, player.transform.eulerAngles.y, -90);

@@ -145,12 +145,13 @@ MonoBehaviour:
   charges: 1
   currentCD: 0
   currentCharges: 1
-  hologram: {fileID: 0}
-  isCasting: 0
+  hologramPrefab: {fileID: 0}
   range: 50
   offset: {x: 0, y: 0, z: 0}
+  quickCast: 0
   type: 3
   effect: {fileID: 100052, guid: f5ddeb708b446b4458b72a7ae681f09c, type: 3}
+  showingHologram: 0
 --- !u!114 &114526755352677964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -167,12 +168,13 @@ MonoBehaviour:
   charges: 3
   currentCD: 1
   currentCharges: 1
-  hologram: {fileID: 0}
-  isCasting: 0
+  hologramPrefab: {fileID: 0}
   range: 10
   offset: {x: 0, y: 0, z: 0}
+  quickCast: 0
   type: 0
   effect: {fileID: 1314168788820104, guid: 980c31dbd1996cd44bee7c7564fb9db5, type: 2}
+  showingHologram: 0
 --- !u!114 &114864247476973438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,9 +191,10 @@ MonoBehaviour:
   charges: 3
   currentCD: 1
   currentCharges: 1
-  hologram: {fileID: 0}
-  isCasting: 0
+  hologramPrefab: {fileID: 0}
   range: 10
   offset: {x: 0, y: 0, z: 0}
+  quickCast: 0
   type: 0
   effect: {fileID: 1544482232845374, guid: 3b62d855430d52c4f8f4df679b795b32, type: 2}
+  showingHologram: 0
