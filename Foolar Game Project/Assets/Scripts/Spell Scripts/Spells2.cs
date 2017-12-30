@@ -23,10 +23,6 @@ public abstract class Spells2 : MonoBehaviour {
         }
     }
 
-    private void Update() {
-        Debug.Log(Time.time);
-    }
-
     public bool canCast() {
         return currentCharges > 0;
     }

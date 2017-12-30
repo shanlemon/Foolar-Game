@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 95118799092753042}
   - component: {fileID: 65883953640387738}
   - component: {fileID: 65061310702842402}
+  - component: {fileID: 114321154596828382}
   m_Layer: 0
   m_Name: Chamfered-Wall-1
   m_TagString: Untagged
@@ -199,3 +200,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114321154596828382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086553857242876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00e10a2e9c91c4e4b80d6a5647c0133f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeSpan: 100
+  deathAnimation: {fileID: 0}

@@ -12,7 +12,7 @@ public class DeathScript : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		if (lifeSpan-- <= 0) {
 			if(deathAnimation != null)
 				Instantiate (deathAnimation, gameObject.transform.position, gameObject.transform.rotation);

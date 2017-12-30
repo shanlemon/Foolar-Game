@@ -2461,6 +2461,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114321154596828382, guid: c9acb6e802037c0418b6a8c0962820e8,
+        type: 2}
+      propertyPath: lifeSpan
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9acb6e802037c0418b6a8c0962820e8, type: 2}
   m_IsPrefabParent: 0
@@ -4475,40 +4480,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 114489638639366466, guid: 1614a91cfddbb0349b1206057af4a5f6,
+    - target: {fileID: 114625444117751666, guid: 1614a91cfddbb0349b1206057af4a5f6,
         type: 2}
       propertyPath: player
       value: 
       objectReference: {fileID: 249353354}
-    m_RemovedComponents:
-    - {fileID: 114489638639366466, guid: 1614a91cfddbb0349b1206057af4a5f6, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1614a91cfddbb0349b1206057af4a5f6, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1310420647 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1107302814906170, guid: 1614a91cfddbb0349b1206057af4a5f6,
+--- !u!114 &1310420648 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114625444117751666, guid: 1614a91cfddbb0349b1206057af4a5f6,
     type: 2}
   m_PrefabInternal: {fileID: 1310420646}
---- !u!114 &1310420648
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1310420647}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81b8c3fca74f02d4baceceeb6aeaa692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hologramPrefab: {fileID: 0}
-  effect: {fileID: 0}
-  player: {fileID: 249353354}
-  cooldown: 200
-  charges: 2
-  currentCooldown: 0
-  currentCharges: 0
-  dashStrength: 100
-  dashTime: 2
 --- !u!1 &1313150990
 GameObject:
   m_ObjectHideFlags: 0
