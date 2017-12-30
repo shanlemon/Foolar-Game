@@ -10,8 +10,6 @@ public class GameController : MonoBehaviour {
     void Start() {
         settingsOpen = false;
     }
-
-    // Update is called once per frame
     
 	
 	// Update is called once per frame

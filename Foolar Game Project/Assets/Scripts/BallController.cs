@@ -10,14 +10,16 @@ public class BallController : MonoBehaviour {
 		rb = GetComponent<Rigidbody> ();
 	}
 
-	void Update () {
-		
-	}
 
 	public void push (float power, Transform trans) {
-		Vector3 shootDir = transform.position - trans.position; //calculate delta vector
-		shootDir.Normalize (); //normalize
-		rb.AddForce (shootDir * (power / 5000000), ForceMode.Impulse);
+        //Vector3 shootDir = transform.position - trans.position; //calculate delta vector
+        //shootDir.Normalize (); //normalize
+
+        Vector3 shootDir = trans.GetComponent<Rigidbody>().velocity.normalized;
+
+        rb.constraints = RigidbodyConstraints.None;
+
+        rb.AddForce (shootDir * (power / 4500000), ForceMode.Impulse);
 	}
 
     public IEnumerator freezeBall(float time) {

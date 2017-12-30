@@ -9,14 +9,14 @@ public class ProjectileController : MonoBehaviour {
 	public Rigidbody rb;
 
 	void Start () {	
-		//rb = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody>();
+
 	}
 
-	void Update () {
-		//rb.AddForce (Vector3.forward * moveSpeed * Time.deltaTime);
-		gameObject.transform.Translate (Vector3.forward * moveSpeed * Time.deltaTime);
-		moveSpeed += acc;
-	}
+    void FixedUpdate() {
+        rb.MovePosition(transform.position + (moveSpeed * transform.forward * Time.deltaTime));
+        moveSpeed += acc;
+    }
 
 	public void delete() {
 		Destroy (gameObject);
@@ -25,7 +25,6 @@ public class ProjectileController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		GameObject obj = other.gameObject;
         if (obj.tag.Equals("Ball")) {
-            //obj.GetComponent<BallController>().push(power, transform);
             if (this.gameObject.name == "Fireball(Clone)") {
                 obj.GetComponent<BallController>().push(power, transform);
             } else if (this.gameObject.name == "IceBall(Clone)") {
