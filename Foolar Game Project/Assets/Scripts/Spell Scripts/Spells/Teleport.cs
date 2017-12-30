@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wall : Spells2 {
+public class Teleport : Spells2 {
 
     public float range;
     public Vector3 offset;
@@ -11,16 +11,18 @@ public class Wall : Spells2 {
 
     public override void cast(InputSent input) {
         currentCharges--;
-		Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
+        Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
-            Instantiate(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
+            player.transform.position = loc;
+        }else {
+            player.transform.position = hologram.transform.position;
         }
     }
 
     public override void showHologram() {
-        if(hologram == null) {
+        if (hologram == null) {
             Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, range)) {
@@ -48,4 +50,5 @@ public class Wall : Spells2 {
             }
         }
     }
+
 }

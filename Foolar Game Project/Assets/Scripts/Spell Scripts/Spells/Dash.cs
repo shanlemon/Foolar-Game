@@ -16,7 +16,7 @@ public class Dash : Spells2 {
     IEnumerator dash() {
 
         Physics.gravity = Vector3.zero;
-        player.rb.velocity = player.transform.forward * dashStrength;
+        player.rb.velocity = player.cam.transform.forward * dashStrength;
 
         yield return new WaitForSeconds(dashTime);
 
