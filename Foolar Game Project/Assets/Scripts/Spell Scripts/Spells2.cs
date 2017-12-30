@@ -13,7 +13,7 @@ public abstract class Spells2 : MonoBehaviour {
     public GameObject hologramPrefab;
     public GameObject effect;
 
-    private void Update() {
+    private void FixedUpdate() {
         if (currentCharges < charges) {
             currentCooldown++;
             if (currentCooldown >= cooldown) {
@@ -21,6 +21,10 @@ public abstract class Spells2 : MonoBehaviour {
                 currentCooldown = 0;
             }
         }
+    }
+
+    private void Update() {
+        Debug.Log(Time.time);
     }
 
     public bool canCast() {
