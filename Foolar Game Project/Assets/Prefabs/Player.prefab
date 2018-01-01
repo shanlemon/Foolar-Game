@@ -62,6 +62,7 @@ GameObject:
   - component: {fileID: 65253755696235330}
   - component: {fileID: 54798549584258352}
   - component: {fileID: 114202464279284856}
+  - component: {fileID: 114702908686909616}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -94,7 +95,6 @@ GameObject:
   - component: {fileID: 4413949605248454}
   - component: {fileID: 33388822564100522}
   - component: {fileID: 23134280777554480}
-  - component: {fileID: 114864545472780808}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -419,6 +419,29 @@ MonoBehaviour:
   pitch: 0
   tempYaw: 0
   tempPitch: 0
+--- !u!114 &114702908686909616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1055245430948562}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f874fc90178d24bbc1c2d8be3af705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54798549584258352}
+  cam: {fileID: 20987143893162988}
+  cameraController: {fileID: 114605082743482126}
+  movementSpeed: 30
+  rotationSpeed: 2.5
+  jumpForce: 250
+  spell:
+  - {fileID: 114656001356267562, guid: 0833a800eae8f164891aece4cc8e7cdd, type: 2}
+  - {fileID: 114299284700821272, guid: da7a17d9055ee10409e9943e926cea67, type: 2}
+  - {fileID: 114673025521058350, guid: 5a56b555ac6322644b30912f81fb43e8, type: 2}
+  - {fileID: 114625444117751666, guid: 1614a91cfddbb0349b1206057af4a5f6, type: 2}
+  keys: 71000000650000007200000030010000
 --- !u!114 &114813867066456294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -451,29 +474,6 @@ MonoBehaviour:
     i15: 255
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114864545472780808
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1543989258443370}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28f874fc90178d24bbc1c2d8be3af705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 54798549584258352}
-  cam: {fileID: 20987143893162988}
-  cameraController: {fileID: 114605082743482126}
-  movementSpeed: 30
-  rotationSpeed: 2.5
-  jumpForce: 250
-  spell:
-  - {fileID: 114656001356267562, guid: 0833a800eae8f164891aece4cc8e7cdd, type: 2}
-  - {fileID: 114299284700821272, guid: da7a17d9055ee10409e9943e926cea67, type: 2}
-  - {fileID: 114673025521058350, guid: 5a56b555ac6322644b30912f81fb43e8, type: 2}
-  - {fileID: 114625444117751666, guid: 1614a91cfddbb0349b1206057af4a5f6, type: 2}
-  keys: 71000000650000007200000030010000
 --- !u!114 &114988499405857374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,7 +503,7 @@ MonoBehaviour:
   onToggleLocal:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114864545472780808}
+      - m_Target: {fileID: 114702908686909616}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:

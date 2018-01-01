@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public abstract class Spells2 : MonoBehaviour {
+public abstract class Spells2 : NetworkBehaviour {
 
     
     public enum InputSent {
@@ -30,7 +31,9 @@ public abstract class Spells2 : MonoBehaviour {
     public PlayerController player;
     public int cooldown, charges, currentCooldown, currentCharges;
 
-    public abstract void cast(InputSent input);
+    [Command]
+    public abstract void CmdCast(InputSent input);
+
     public abstract void showHologram();
     public abstract void deleteHologram();
     public abstract void updateHologram();

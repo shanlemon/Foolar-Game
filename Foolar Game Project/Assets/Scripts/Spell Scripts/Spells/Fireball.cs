@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Fireball : Spells2 {
 
-    public override void cast(InputSent input) {
+    public override void CmdCast(InputSent input) {
         currentCharges--;
         Quaternion rotation = player.cam.transform.rotation;
         Instantiate(effect, player.transform.Find("Shoot Target").position, rotation);

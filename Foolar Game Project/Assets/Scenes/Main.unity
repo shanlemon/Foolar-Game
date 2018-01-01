@@ -284,7 +284,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 249353354}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: da7a17d9055ee10409e9943e926cea67, type: 2}
   m_IsPrefabParent: 0
@@ -1235,12 +1235,6 @@ Skybox:
   m_GameObject: {fileID: 226478828}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 0}
---- !u!114 &249353354 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114864545472780808, guid: 4aaab6a710a85c04a98fb18ace5e46ff,
-    type: 2}
-  m_PrefabInternal: {fileID: 726362047}
-  m_Script: {fileID: 11500000, guid: 28f874fc90178d24bbc1c2d8be3af705, type: 3}
 --- !u!4 &255692023 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4222568327061420, guid: 14077aeb4195c624594211aef6af7bbc,
@@ -2171,7 +2165,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 249353354}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14077aeb4195c624594211aef6af7bbc, type: 2}
   m_IsPrefabParent: 0
@@ -2602,16 +2596,6 @@ Prefab:
       propertyPath: ball
       value: 
       objectReference: {fileID: 2129187607}
-    - target: {fileID: 114202464279284856, guid: 4aaab6a710a85c04a98fb18ace5e46ff,
-        type: 2}
-      propertyPath: m_SendInterval
-      value: 0.033333335
-      objectReference: {fileID: 0}
-    - target: {fileID: 114202464279284856, guid: 4aaab6a710a85c04a98fb18ace5e46ff,
-        type: 2}
-      propertyPath: m_InterpolateRotation
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4aaab6a710a85c04a98fb18ace5e46ff, type: 2}
   m_IsPrefabParent: 0
@@ -3245,7 +3229,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 249353354}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0833a800eae8f164891aece4cc8e7cdd, type: 2}
   m_IsPrefabParent: 0
@@ -3735,7 +3719,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 249353354}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5a56b555ac6322644b30912f81fb43e8, type: 2}
   m_IsPrefabParent: 0
@@ -4512,7 +4496,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 249353354}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1614a91cfddbb0349b1206057af4a5f6, type: 2}
   m_IsPrefabParent: 0
@@ -5158,6 +5142,64 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1478243701}
+--- !u!1 &1508236485 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1534621957477054, guid: c38cfe10927bbd045931011418cfae70,
+    type: 2}
+  m_PrefabInternal: {fileID: 432090890}
+--- !u!114 &1508236486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508236485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 15
+  m_InterpolateMovement: 1
+--- !u!114 &1508236487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1508236485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 195
+    i1: 140
+    i2: 254
+    i3: 16
+    i4: 146
+    i5: 123
+    i6: 189
+    i7: 4
+    i8: 89
+    i9: 49
+    i10: 1
+    i11: 20
+    i12: 24
+    i13: 207
+    i14: 174
+    i15: 112
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0
 --- !u!1 &1556583124
 GameObject:
   m_ObjectHideFlags: 0

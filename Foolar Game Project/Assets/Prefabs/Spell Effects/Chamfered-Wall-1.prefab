@@ -25,6 +25,8 @@ GameObject:
   - component: {fileID: 65883953640387738}
   - component: {fileID: 65061310702842402}
   - component: {fileID: 114321154596828382}
+  - component: {fileID: 114828633971843570}
+  - component: {fileID: 114321595201760430}
   m_Layer: 0
   m_Name: Chamfered-Wall-1
   m_TagString: Untagged
@@ -213,3 +215,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeSpan: 100
   deathAnimation: {fileID: 0}
+--- !u!114 &114321595201760430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086553857242876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114828633971843570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1086553857242876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 201
+    i1: 172
+    i2: 182
+    i3: 232
+    i4: 2
+    i5: 3
+    i6: 124
+    i7: 4
+    i8: 24
+    i9: 182
+    i10: 168
+    i11: 192
+    i12: 150
+    i13: 40
+    i14: 32
+    i15: 232
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 0

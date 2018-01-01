@@ -8,7 +8,7 @@ public class Dash : Spells2 {
     public float dashStrength;
     public float dashTime;
 
-    public override void cast(InputSent input) {
+    public override void CmdCast(InputSent input) {
         currentCharges--;
         StartCoroutine(dash());
     }

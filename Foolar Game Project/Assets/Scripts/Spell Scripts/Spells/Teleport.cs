@@ -9,7 +9,7 @@ public class Teleport : Spells2 {
     public Vector3 offset;
     private GameObject hologram;
 
-    public override void cast(InputSent input) {
+    public override void CmdCast(InputSent input) {
         currentCharges--;
         Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;

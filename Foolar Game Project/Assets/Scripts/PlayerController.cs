@@ -1,8 +1,9 @@
 ﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 
     //Components
     public Rigidbody rb;
@@ -60,6 +61,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     void Update() {
+        if (!isLocalPlayer)
+            return;
+
         if (!GameController.settingsOpen) {
 
             if (Input.GetKeyDown(KeyCode.Space)) {
@@ -92,14 +96,14 @@ public class PlayerController : MonoBehaviour {
                                 if (isCasting) {
                                     stopHologram();
                                 }
-                                spell[i].cast(Spells2.InputSent.keyboard);
+                                spell[i].CmdCast(Spells2.InputSent.keyboard);
                             }
                         }
                     }
                 }
                 if (isCasting) {
                     if (Input.GetMouseButtonDown(0)) {
-                        spell[castingIndex].cast(Spells2.InputSent.leftClick);
+                        spell[castingIndex].CmdCast(Spells2.InputSent.leftClick);
                         stopHologram();
 
                     }
