@@ -18,7 +18,7 @@ public class Wall : Spells2 {
             Instantiate(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
         } else if (hologram != null) {
             Instantiate(effect, hologram.transform.position, hologram.transform.rotation);
-        }
+        }   
     }
 
     public override void showHologram() {
