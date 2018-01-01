@@ -16,7 +16,7 @@ public class Teleport : Spells2 {
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
             player.transform.position = loc;
-        }else {
+        }else if(hologram != null) {
             player.transform.position = hologram.transform.position;
         }
     }
