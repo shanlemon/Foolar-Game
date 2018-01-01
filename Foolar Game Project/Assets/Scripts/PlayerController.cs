@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        rb = GetComponent<Rigidbody>();
         tempMovementSpeed = movementSpeed;
 
     }
