@@ -16,14 +16,10 @@ public class Wall : Spells2 {
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
             Instantiate(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
-<<<<<<< HEAD
-        } else {
-            Instantiate(effect, hologram.transform.position, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
-=======
         } else if (hologram != null) {
             Instantiate(effect, hologram.transform.position, hologram.transform.rotation);
->>>>>>> d8a2cd595d52f4f7ee8f1933cd2037f53050e104
         }
+
     }
 
     public override void showHologram() {
