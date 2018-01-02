@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4271396445349894}
-  - component: {fileID: 114625065040125970}
+  - component: {fileID: 114673025521058350}
   m_Layer: 0
   m_Name: TeleportV2
   m_TagString: Untagged
@@ -34,13 +34,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1510867748802232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.0192757, y: 6.8067274, z: -1.7454176}
+  m_LocalPosition: {x: -3.0192757, y: 5.6367273, z: -1.7454176}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114625065040125970
+--- !u!114 &114673025521058350
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -48,16 +48,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510867748802232}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e62fab9eb615f47b97a5dfe42c070f, type: 3}
+  m_Script: {fileID: 11500000, guid: 849bf119fa3767348bb562a50b910d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hologramPrefab: {fileID: 1086553857242876, guid: 1a7b47c8fba6d694fadc90f4a89a25ca,
+  hologramPrefab: {fileID: 1828732159318602, guid: 9222dd858e363f242a5a830b8da9a4f2,
     type: 2}
-  effect: {fileID: 1086553857242876, guid: c9acb6e802037c0418b6a8c0962820e8, type: 2}
+  effect: {fileID: 0}
   player: {fileID: 0}
-  cooldown: 60
-  charges: 1
+  cooldown: 50
+  charges: 5
   currentCooldown: 0
   currentCharges: 0
   range: 50
-  offset: {x: 0, y: 4, z: 0}
+  offset: {x: 0, y: 1.3, z: 0}
