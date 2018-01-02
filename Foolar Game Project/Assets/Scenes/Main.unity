@@ -513,6 +513,61 @@ Prefab:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198302823061997864, guid: 9222dd858e363f242a5a830b8da9a4f2,
+        type: 2}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minScalar
+      value: 30.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9222dd858e363f242a5a830b8da9a4f2, type: 2}
   m_IsPrefabParent: 0
@@ -751,7 +806,7 @@ MonoBehaviour:
   charges: 5
   currentCooldown: 0
   currentCharges: 0
-  range: 50
+  range: 100
   offset: {x: 0, y: 1.3, z: 0}
 --- !u!1 &121563530
 GameObject:
@@ -2923,7 +2978,7 @@ GameObject:
   - component: {fileID: 738463250}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4919,6 +4974,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 249353354}
+    - target: {fileID: 114625444117751666, guid: 1614a91cfddbb0349b1206057af4a5f6,
+        type: 2}
+      propertyPath: charges
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114625444117751666, guid: 1614a91cfddbb0349b1206057af4a5f6,
+        type: 2}
+      propertyPath: cooldown
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1614a91cfddbb0349b1206057af4a5f6, type: 2}
   m_IsPrefabParent: 0
