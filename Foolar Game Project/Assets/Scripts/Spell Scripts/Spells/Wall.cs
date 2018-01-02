@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Wall : Spells2 {
 
@@ -9,16 +10,24 @@ public class Wall : Spells2 {
     public Vector3 offset;
     private GameObject hologram;
 
-    public override void CmdCast(InputSent input) {
+    public override void Cast() {
         currentCharges--;
 		Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
-            Instantiate(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
+            Cmd_PlaceWall(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
+            //Instantiate(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
         } else if (hologram != null) {
-            Instantiate(effect, hologram.transform.position, hologram.transform.rotation);
+            Cmd_PlaceWall(effect, hologram.transform.position, hologram.transform.rotation);
+            //Instantiate(effect, hologram.transform.position, hologram.transform.rotation);
         }   
+    }
+
+    [Command]
+    void Cmd_PlaceWall(GameObject effect, Vector3 pos, Quaternion rotation) {
+        GameObject obj = (GameObject)Instantiate(effect, pos, rotation);
+        NetworkServer.Spawn(obj);
     }
 
     public override void showHologram() {

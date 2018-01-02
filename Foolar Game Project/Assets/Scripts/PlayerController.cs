@@ -23,11 +23,12 @@ public class PlayerController : NetworkBehaviour {
     public static float fallMultiplier = normalGrav * 2.5f;
     public static float lowJumpMultiplier = normalGrav * 2f;
 
-    //spells
+    /*spells
     public Spells2[] spell;
     public KeyCode[] keys;
     private int castingIndex;
     private bool isCasting;
+    */
 
     // Use this for initialization
     void Start() {
@@ -83,7 +84,7 @@ public class PlayerController : NetworkBehaviour {
                 transform.eulerAngles = new Vector3(0, cam.transform.eulerAngles.y);
             }
 
-            //Casting
+            /*Casting
             if (!cameraController.isBallFocused) {
                 for (int i = 0; i < keys.Length; i++) {
                     if (Input.GetKeyDown(keys[i])) {
@@ -96,14 +97,14 @@ public class PlayerController : NetworkBehaviour {
                                 if (isCasting) {
                                     stopHologram();
                                 }
-                                spell[i].CmdCast(Spells2.InputSent.keyboard);
+                                spell[i].RpcCast(Spells2.InputSent.keyboard);
                             }
                         }
                     }
                 }
                 if (isCasting) {
                     if (Input.GetMouseButtonDown(0)) {
-                        spell[castingIndex].CmdCast(Spells2.InputSent.leftClick);
+                        spell[castingIndex].RpcCast(Spells2.InputSent.leftClick);
                         stopHologram();
 
                     }
@@ -118,6 +119,7 @@ public class PlayerController : NetworkBehaviour {
                     }
                 }
             }
+            */
         }
       }
 
@@ -134,10 +136,12 @@ public class PlayerController : NetworkBehaviour {
         }
     }
 
+    /*
     public void stopHologram() {
         spell[castingIndex].deleteHologram();
         castingIndex = -1;
         isCasting = false;
     }
+    */
     
 }

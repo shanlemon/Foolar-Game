@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+
 
 public class Teleport : Spells2 {
 
@@ -9,7 +11,7 @@ public class Teleport : Spells2 {
     public Vector3 offset;
     private GameObject hologram;
 
-    public override void CmdCast(InputSent input) {
+    public override void Cast() {
         currentCharges--;
         Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
@@ -20,6 +22,8 @@ public class Teleport : Spells2 {
             player.transform.position = hologram.transform.position;
         }
     }
+
+
 
     public override void showHologram() {
         if (hologram == null) {

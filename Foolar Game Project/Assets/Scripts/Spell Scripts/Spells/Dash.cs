@@ -2,13 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+
 
 public class Dash : Spells2 {
 
     public float dashStrength;
     public float dashTime;
 
-    public override void CmdCast(InputSent input) {
+    public override void Cast() {
         currentCharges--;
         StartCoroutine(dash());
     }

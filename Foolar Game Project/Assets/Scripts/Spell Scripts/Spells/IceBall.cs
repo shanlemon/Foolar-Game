@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
+
 
 public class IceBall : Spells2 {
 
-    public override void CmdCast(InputSent input) {
+    public override void Cast() {
         currentCharges--;
         Quaternion rotation = player.cam.transform.rotation;
         Instantiate(effect, player.transform.Find("Shoot Target").position, rotation);

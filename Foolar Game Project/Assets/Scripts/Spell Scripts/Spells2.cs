@@ -29,10 +29,10 @@ public abstract class Spells2 : NetworkBehaviour {
     }
 
     public PlayerController player;
+
     public int cooldown, charges, currentCooldown, currentCharges;
 
-    [Command]
-    public abstract void CmdCast(InputSent input);
+    public abstract void Cast();
 
     public abstract void showHologram();
     public abstract void deleteHologram();
