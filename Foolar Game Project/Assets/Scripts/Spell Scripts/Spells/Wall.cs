@@ -21,7 +21,7 @@ public class Wall : Spells2 {
         RaycastHit hit;
 		
         if (Physics.Raycast(ray, out hit, range)) {
-            Vector3 loc = hit.point + offset;
+            Vector3 loc = hit.point;
 			Quaternion rotation = Quaternion.Euler(-90, player.transform.eulerAngles.y, -90);
 			CmdWall(loc, rotation);
 		} else if (hologram != null) {
@@ -33,7 +33,14 @@ public class Wall : Spells2 {
 	[Command]
 	public void CmdWall( Vector3 loc, Quaternion rotation) {
 		anim.Play("Wall");
-		GameObject obj = Instantiate(effect, loc, rotation);
+		StartCoroutine(placeWall(delay,loc, rotation));
+	}
+
+	IEnumerator placeWall(float time, Vector3 loc, Quaternion rotation) {
+		yield return new WaitForSeconds(time);
+		GameObject obj = Instantiate(effect, new Vector3(0,0,0), new Quaternion(-90,0,-90,0));
+		obj.transform.GetChild(0).transform.position = loc;
+		obj.transform.GetChild(0).transform.rotation = rotation;
 		NetworkServer.Spawn(obj);
 	}
 

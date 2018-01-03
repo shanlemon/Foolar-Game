@@ -1465,9 +1465,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hologramPrefab: {fileID: 1086553857242876, guid: 1a7b47c8fba6d694fadc90f4a89a25ca,
     type: 2}
-  effect: {fileID: 1086553857242876, guid: c9acb6e802037c0418b6a8c0962820e8, type: 2}
+  effect: {fileID: 1234853921204196, guid: 8feb85ad1f3b0b04c80c8b2088344401, type: 2}
   anim: {fileID: 0}
-  delay: 0
+  delay: 0.3
   player: {fileID: 114702908686909616}
   cooldown: 60
   charges: 1
@@ -1503,7 +1503,7 @@ MonoBehaviour:
   spell:
   - {fileID: 114805404191257218}
   - {fileID: 114980305284986474}
-  - {fileID: 114318678427245204}
+  - {fileID: 114010892682437150}
   - {fileID: 114746826166891308}
   keys: 30010000710000006500000072000000
 --- !u!114 &114202464279284856
