@@ -19,7 +19,6 @@ public class GoalKeeper : NetworkBehaviour {
 	[SyncVar]
 	public int team2;
 
-
 	public enum Teams
 	{
 		blue, orange
@@ -38,7 +37,6 @@ public class GoalKeeper : NetworkBehaviour {
 		RpcUpdateTime();
 
 		timeText.text = time.ToString("F1");
-
 	}
 
 	[ClientRpc] 
@@ -52,11 +50,18 @@ public class GoalKeeper : NetworkBehaviour {
 		//if (!isServer) {
 		//	return;
 		//}
-
-		if(teamIndex == 0) {
-			team1++;
-		}else if(teamIndex == 1){
-			team2++;
+		switch (teamIndex) {
+			case 0:
+				team1++;
+				team1Text.text = team1.ToString();
+				break;
+			case 1:
+				team2++;
+				team2Text.text = team2.ToString();
+				break;
+			default:
+				Debug.Log("goalIndex > 1");
+				break;
 		}
 	}
 
