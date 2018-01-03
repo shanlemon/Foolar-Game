@@ -447,7 +447,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: emote2
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 1101415790778317162}
@@ -460,7 +460,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1b823021bac5df04db5d0981c1384414, type: 3}
+  m_Motion: {fileID: 7400000, guid: 679265e3e9f167648a7389e41f161486, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
