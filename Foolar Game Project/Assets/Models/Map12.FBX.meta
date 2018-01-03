@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 72ead07dd53568848aa8cfa976eca861
-timeCreated: 1515016133
+guid: e4eeb3de8dd22f543af657f250c3b939
+timeCreated: 1515017626
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -82,10 +82,19 @@ ModelImporter:
     100148: Box086
     100150: Box087
     100152: Box088
-    100154: //RootNode
-    100156: Plane003
-    100158: Plane004
-    100160: Plane005
+    100154: Box089
+    100156: Box090
+    100158: Box091
+    100160: Box092
+    100162: Box093
+    100164: Box094
+    100166: Box095
+    100168: Box096
+    100170: Box097
+    100172: //RootNode
+    100174: Plane003
+    100176: Plane004
+    100178: Plane005
     400000: Box002
     400002: Box003
     400004: Box005
@@ -163,12 +172,20 @@ ModelImporter:
     400148: Box086
     400150: Box087
     400152: Box088
-    400154: //RootNode
-    400156: Plane003
-    400158: Plane004
-    400160: Plane005
+    400154: Box089
+    400156: Box090
+    400158: Box091
+    400160: Box092
+    400162: Box093
+    400164: Box094
+    400166: Box095
+    400168: Box096
+    400170: Box097
+    400172: //RootNode
+    400174: Plane003
+    400176: Plane004
+    400178: Plane005
     2100000: No Name
-    2100002: 'Material #27'
     2300000: Box002
     2300002: Box003
     2300004: Box005
@@ -246,9 +263,18 @@ ModelImporter:
     2300148: Box086
     2300150: Box087
     2300152: Box088
-    2300154: Plane003
-    2300156: Plane004
-    2300158: Plane005
+    2300154: Box089
+    2300156: Box090
+    2300158: Box091
+    2300160: Box092
+    2300162: Box093
+    2300164: Box094
+    2300166: Box095
+    2300168: Box096
+    2300170: Box097
+    2300172: Plane003
+    2300174: Plane004
+    2300176: Plane005
     3300000: Box002
     3300002: Box003
     3300004: Box005
@@ -326,9 +352,18 @@ ModelImporter:
     3300148: Box086
     3300150: Box087
     3300152: Box088
-    3300154: Plane003
-    3300156: Plane004
-    3300158: Plane005
+    3300154: Box089
+    3300156: Box090
+    3300158: Box091
+    3300160: Box092
+    3300162: Box093
+    3300164: Box094
+    3300166: Box095
+    3300168: Box096
+    3300170: Box097
+    3300172: Plane003
+    3300174: Plane004
+    3300176: Plane005
     4300000: Plane003
     4300002: Box003
     4300004: Box005
@@ -409,6 +444,15 @@ ModelImporter:
     4300154: Box002
     4300156: Box087
     4300158: Box088
+    4300160: Box089
+    4300162: Box090
+    4300164: Box091
+    4300166: Box092
+    4300168: Box093
+    4300170: Box094
+    4300172: Box095
+    4300174: Box096
+    4300176: Box097
     9500000: //RootNode
   externalObjects: {}
   materials:
