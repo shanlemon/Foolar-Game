@@ -23,7 +23,9 @@ public class PlayerController : NetworkBehaviour {
     public static float fallMultiplier = normalGrav * 2.5f;
     public static float lowJumpMultiplier = normalGrav * 2f;
 
+	//Animations
 	public Animator anim;
+
 
 	/*spells
     public Spells2[] spell;
@@ -63,6 +65,17 @@ public class PlayerController : NetworkBehaviour {
 
 	}
 
+	void Die() {
+		int rand = (int)Mathf.Floor(Random.Range(0, 4));
+		if (rand == 0)
+			anim.Play("Die01");
+		else if (rand == 1)
+			anim.Play("Die02");
+		else if (rand == 2)
+			anim.Play("Die03");
+		else if (rand == 3)
+			anim.Play("Die04");
+	}
 
 	void Update() {
         if (!isLocalPlayer)
@@ -83,8 +96,16 @@ public class PlayerController : NetworkBehaviour {
 				} 
 			}
 
-			
-
+			//emotes
+			if (Input.GetKeyDown(KeyCode.Alpha1)) {
+				Die();
+			}
+			if (Input.GetKeyDown(KeyCode.Alpha2)) {
+				anim.Play("emote2");
+			}
+			if (Input.GetKeyDown(KeyCode.Alpha3)) {
+				anim.Play("emote3");
+			}
 
 			//Change movement when ball is focused
 			if (cameraController.isBallFocused) {
