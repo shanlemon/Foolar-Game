@@ -6,10 +6,12 @@ using UnityEngine.Networking;
 public class PlayerCasting : NetworkBehaviour {
 
     public CameraController cameraController;
+	public PlayerController player;
     public Spells2[] spell;
     public KeyCode[] keys;
     private int castingIndex;
-    private bool isCasting;
+	private bool isCasting;
+
 
     // Update is called once per frame
     void Update() {
@@ -29,7 +31,8 @@ public class PlayerCasting : NetworkBehaviour {
                                 if (isCasting) {
                                     stopHologram();
                                 }
-                                spell[i].Cast();
+                                spell[i].cast();
+
                             }
                         }
                     }
@@ -37,7 +40,7 @@ public class PlayerCasting : NetworkBehaviour {
                 if (isCasting) {
                     if (Input.GetMouseButtonDown(0)) {
                         Debug.Log(spell[castingIndex]);
-                        spell[castingIndex].Cast();
+                        spell[castingIndex].cast();
                         stopHologram();
 
                     }

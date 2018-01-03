@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour {
 
     public GameObject crosshair;
+	private bool crosshairActive = true;
     public bool lockCursor = true;
     public static float mouseSensitivity;
     public Transform target;
@@ -15,22 +16,24 @@ public class CameraController : MonoBehaviour {
     Vector3 rotationSmoothVelocity;
     Vector3 currentRotation;
     public Transform player;
-    public Transform ball;
+    Transform ball;
 
     public bool isBallFocused = false;
     public float yaw, pitch, tempYaw, tempPitch;
 
 
     void Start() {
-        mouseSensitivity = 5f;
+        mouseSensitivity = 5f; 
         if (lockCursor) {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-    }
+		ball = GameObject.Find("Ball").transform;
+
+	}
 
 
-    void LateUpdate() {
+	void LateUpdate() {
 
         if (!GameController.settingsOpen) {
             yaw += Input.GetAxisRaw("Mouse X") * mouseSensitivity;
@@ -47,16 +50,17 @@ public class CameraController : MonoBehaviour {
                 pitch = tempPitch;
             }
 
-            if (Input.GetKeyDown(KeyCode.X)) {
+            if (Input.GetKeyDown(KeyCode.B)) {
                 isBallFocused = !isBallFocused;
+				crosshair.SetActive(!crosshairActive);
             }
 
             if (isBallFocused) {
-                crosshair.SetActive(false);
+                //crosshair.SetActive(false);
                 Quaternion lookRotation = Quaternion.LookRotation(ball.position - transform.position);
-                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSmoothTime * 6);
+                transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, .9f);
             } else {
-                crosshair.SetActive(true);
+                //crosshair.SetActive(true);
                 currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
                 transform.eulerAngles = currentRotation;
 

@@ -7,13 +7,30 @@ using UnityEngine.Networking;
 
 public class IceBall : Spells2 {
 
-    public override void Cast() {
-        currentCharges--;
-        Quaternion rotation = player.cam.transform.rotation;
-        Instantiate(effect, player.transform.Find("Shoot Target").position, rotation);
-    }
 
-    public override void deleteHologram() {
+    public override void cast() {
+        currentCharges--;
+		anim.Play("Iceball");
+		StartCoroutine(ExecuteAfterTime(delay));
+
+	}
+
+	[Command]
+	public void CmdIceball(Vector3 loc, Quaternion rotation) {
+		GameObject obj = Instantiate(effect, loc, rotation);
+		NetworkServer.Spawn(obj);
+	}
+
+	IEnumerator ExecuteAfterTime(float time) {
+
+		yield return new WaitForSeconds(time);
+
+		Quaternion rotation = player.cam.transform.rotation;
+		CmdIceball(player.transform.Find("Shoot Target").position, rotation);
+
+	}
+
+	public override void deleteHologram() {
         throw new NotImplementedException();
     }
 

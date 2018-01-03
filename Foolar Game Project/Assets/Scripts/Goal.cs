@@ -19,7 +19,7 @@ public class Goal : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		GameObject obj = other.gameObject;
 		if (obj.tag.Equals ("Ball")) {
-			goalKeeper.updateScore (teamIndex);
+			goalKeeper.RpcUpdateScore(teamIndex);
 			goalKeeper.resetGame ();
 		}
 	}

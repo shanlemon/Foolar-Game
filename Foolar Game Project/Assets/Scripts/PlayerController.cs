@@ -23,15 +23,17 @@ public class PlayerController : NetworkBehaviour {
     public static float fallMultiplier = normalGrav * 2.5f;
     public static float lowJumpMultiplier = normalGrav * 2f;
 
-    /*spells
+	public Animator anim;
+
+	/*spells
     public Spells2[] spell;
     public KeyCode[] keys;
     private int castingIndex;
     private bool isCasting;
     */
 
-    // Use this for initialization
-    void Start() {
+	// Use this for initialization
+	void Start() {
         tempMovementSpeed = movementSpeed;
 
     }
@@ -57,9 +59,9 @@ public class PlayerController : NetworkBehaviour {
         if (jumpRequest) {
             rb.AddForce((Vector3.up * Time.deltaTime * (jumpForce * 100)), ForceMode.Impulse);
             jumpRequest = false;
-        }
+		}
 
-    }
+	}
 
     void Update() {
         if (!isLocalPlayer)
@@ -67,15 +69,24 @@ public class PlayerController : NetworkBehaviour {
 
         if (!GameController.settingsOpen) {
 
-            if (Input.GetKeyDown(KeyCode.Space)) {
+			//Animations
+			anim.SetFloat("BlendX", Input.GetAxis("Horizontal"));
+			anim.SetFloat("BlendY", Input.GetAxis("Vertical"));
+
+
+			//Jumping
+			if (Input.GetKeyDown(KeyCode.Space)) {
                 if (isGrounded) {
-                    jumpRequest = true;
-                }
-            }
+					jumpRequest = true;
+					anim.SetBool("isJumping", true);
+				} 
+			}
+
+			
 
 
-            //Change movement when ball is focused
-            if (cameraController.isBallFocused) {
+			//Change movement when ball is focused
+			if (cameraController.isBallFocused) {
                 transform.Rotate(0, Input.GetAxis("Horizontal") * rotationSpeed, 0, Space.Self);
             } 
 
@@ -127,7 +138,8 @@ public class PlayerController : NetworkBehaviour {
     void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.tag == "Ground") {
             isGrounded = true;
-        }
+			anim.SetBool("isJumping", false);
+		}
     }
 
     void OnCollisionExit(Collision collision) {

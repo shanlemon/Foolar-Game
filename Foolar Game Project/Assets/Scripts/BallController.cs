@@ -5,14 +5,35 @@ using UnityEngine;
 public class BallController : MonoBehaviour {
 
 	private Rigidbody rb;
+	private bool hit;
+	public float maxVelocity;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 	}
 
-    public void OnCollisionEnter(Collision collision) {
+	void Update() {
+		if (!hit) {
+			rb.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
+		}
+
+		rb.velocity = new Vector3(Mathf.Clamp(rb.velocity.x, -maxVelocity, maxVelocity), Mathf.Clamp(rb.velocity.y, -maxVelocity, maxVelocity), Mathf.Clamp(rb.velocity.z, -maxVelocity, maxVelocity));
+
+	}
+
+
+
+	public void OnCollisionEnter(Collision collision) {
+		hit = true;
         rb.constraints = RigidbodyConstraints.None;
     }
+
+	public void resetBall() {
+		rb.velocity = Vector3.zero;
+		transform.position = new Vector3(0, 60, 0);
+		hit = false;
+
+	}
 
 
     public void push (float power, Transform trans) {

@@ -11,21 +11,34 @@ public class Teleport : Spells2 {
     public Vector3 offset;
     private GameObject hologram;
 
-    public override void Cast() {
+
+    public override void cast() {
         currentCharges--;
         Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
-            player.transform.position = loc;
-        }else if(hologram != null) {
-            player.transform.position = hologram.transform.position;
-        }
-    }
+			anim.Play("Teleport");
+			StartCoroutine(teleportToRay(delay, loc));
+		} else if (hologram != null) {
+			anim.Play("Teleport");
+			StartCoroutine(teleportToHologram(delay));
 
+		}
+	}
 
+	IEnumerator teleportToHologram(float time) {
+		yield return new WaitForSeconds(time);
+		player.transform.position = hologram.transform.position;
 
-    public override void showHologram() {
+	}
+
+	IEnumerator teleportToRay(float time, Vector3 loc) {
+		yield return new WaitForSeconds(time);
+		player.transform.position = loc;
+	}
+
+	public override void showHologram() {
         if (hologram == null) {
             Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
             RaycastHit hit;
@@ -54,5 +67,6 @@ public class Teleport : Spells2 {
             }
         }
     }
+
 
 }

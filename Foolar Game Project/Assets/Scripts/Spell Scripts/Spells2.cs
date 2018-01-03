@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public abstract class Spells2 : NetworkBehaviour {
-
     
     public enum InputSent {
         rightClick,
@@ -13,8 +12,14 @@ public abstract class Spells2 : NetworkBehaviour {
     }
     public GameObject hologramPrefab;
     public GameObject effect;
+	public Animator anim;
+	public float delay;
 
-    private void FixedUpdate() {
+	void Start() {
+		anim = player.anim;
+	}
+
+	private void FixedUpdate() {
         if (currentCharges < charges) {
             currentCooldown++;
             if (currentCooldown >= cooldown) {
@@ -23,7 +28,7 @@ public abstract class Spells2 : NetworkBehaviour {
             }
         }
     }
-
+	
     public bool canCast() {
         return currentCharges > 0;
     }
@@ -32,12 +37,14 @@ public abstract class Spells2 : NetworkBehaviour {
 
     public int cooldown, charges, currentCooldown, currentCharges;
 
-    public abstract void Cast();
+	//[Command]
+	//public abstract void CmdCast(GameObject effect, Vector3 loc, Quaternion rotation);
 
-    public abstract void showHologram();
+	public abstract void cast();
+
+
+	public abstract void showHologram();
     public abstract void deleteHologram();
     public abstract void updateHologram();
-
-
 
 }

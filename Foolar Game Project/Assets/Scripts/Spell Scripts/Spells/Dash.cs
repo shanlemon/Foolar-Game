@@ -10,25 +10,18 @@ public class Dash : Spells2 {
     public float dashStrength;
     public float dashTime;
 
-    public override void Cast() {
+    public override void cast() {
         currentCharges--;
         StartCoroutine(dash());
     }
 
-    IEnumerator dash() {
-
-        Physics.gravity = Vector3.zero;
-        player.rb.velocity = player.cam.transform.forward * dashStrength;
-
-        yield return new WaitForSeconds(dashTime);
-
-        Physics.gravity = new Vector3(0, PlayerController.normalGrav, 0);
-        
-
-
-        
-
-    }
+	IEnumerator dash() { 
+		Physics.gravity = Vector3.zero;
+		player.rb.velocity = player.cam.transform.forward * dashStrength;
+		anim.Play("Dash");
+		yield return new WaitForSeconds(dashTime);
+		Physics.gravity = new Vector3(0, PlayerController.normalGrav, 0);
+	}
 
     public override void deleteHologram() {
         throw new NotImplementedException();

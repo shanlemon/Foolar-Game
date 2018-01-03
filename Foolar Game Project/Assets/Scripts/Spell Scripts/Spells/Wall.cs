@@ -9,28 +9,35 @@ public class Wall : Spells2 {
     public float range;
     public Vector3 offset;
     private GameObject hologram;
+	
+    public override void cast() {
+        Debug.Log("wall-isServer: " + isServer);
 
-    public override void Cast() {
+        if (!isLocalPlayer) 
+            return;
+
         currentCharges--;
 		Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
         RaycastHit hit;
+		
         if (Physics.Raycast(ray, out hit, range)) {
             Vector3 loc = hit.point + offset;
-            Cmd_PlaceWall(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
-            //Instantiate(effect, loc, Quaternion.Euler(-90, player.transform.eulerAngles.y, -90));
-        } else if (hologram != null) {
-            Cmd_PlaceWall(effect, hologram.transform.position, hologram.transform.rotation);
-            //Instantiate(effect, hologram.transform.position, hologram.transform.rotation);
-        }   
+			Quaternion rotation = Quaternion.Euler(-90, player.transform.eulerAngles.y, -90);
+			CmdWall(loc, rotation);
+		} else if (hologram != null) {
+			CmdWall(hologram.transform.position, hologram.transform.rotation);
+			
+        }
     }
 
-    [Command]
-    void Cmd_PlaceWall(GameObject effect, Vector3 pos, Quaternion rotation) {
-        GameObject obj = (GameObject)Instantiate(effect, pos, rotation);
-        NetworkServer.Spawn(obj);
-    }
+	[Command]
+	public void CmdWall( Vector3 loc, Quaternion rotation) {
+		anim.Play("Wall");
+		GameObject obj = Instantiate(effect, loc, rotation);
+		NetworkServer.Spawn(obj);
+	}
 
-    public override void showHologram() {
+	public override void showHologram() {
         if(hologram == null) {
             Ray ray = player.cam.ViewportPointToRay(new Vector3(.5f, .5f, 0f));
             RaycastHit hit;
@@ -59,4 +66,6 @@ public class Wall : Spells2 {
             }
         }
     }
+
+	
 }
