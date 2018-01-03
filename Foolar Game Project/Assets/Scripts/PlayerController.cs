@@ -63,7 +63,8 @@ public class PlayerController : NetworkBehaviour {
 
 	}
 
-    void Update() {
+
+	void Update() {
         if (!isLocalPlayer)
             return;
 
