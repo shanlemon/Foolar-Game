@@ -22,14 +22,14 @@ public class Teleport : Spells2 {
 			StartCoroutine(teleportToRay(delay, loc));
 		} else if (hologram != null) {
 			anim.Play("Teleport");
-			StartCoroutine(teleportToHologram(delay));
+			StartCoroutine(teleportToHologram(delay, hologram));
 
 		}
 	}
 
-	IEnumerator teleportToHologram(float time) {
+	IEnumerator teleportToHologram(float time, GameObject holo) {
 		yield return new WaitForSeconds(time);
-		player.transform.position = hologram.transform.position;
+		player.transform.position = holo.transform.position;
 
 	}
 
